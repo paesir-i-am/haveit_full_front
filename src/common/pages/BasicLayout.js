@@ -25,7 +25,7 @@ const BasicLayout = ({children}) => {
 							<ul className={`menu-items ${menuOpen ? 'open' : ''}`}>
 								<li>
 									<NavLink
-											to="/skinanalysis"
+											to="/skinAnalysis/upload"
 									>
 										나를 읽는 피부 분석
 									</NavLink>

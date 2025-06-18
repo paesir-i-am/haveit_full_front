@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
 import MainPage from '../pages/MainPage';
 import memberRouter from './memberRouter';
+import skinAnalysisRouter from './skinAnalysisRouter';
 
 const Loading = () => <div>Loading...</div>;
 
@@ -17,6 +18,10 @@ const root = createBrowserRouter([
 	{
 		path: "member",
 		children: memberRouter(),
+	},
+	{
+		path: "skinAnalysis",
+		children: skinAnalysisRouter(),
 	},
 ]);
 
