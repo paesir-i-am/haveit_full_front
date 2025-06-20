@@ -6,7 +6,7 @@ export const uploadSkinAnalysisImage = async (image, memberId) => {
 	formData.append("memberId", memberId);
 
 	const response = await axiosInstance.post(
-			"/api/file/upload",
+			"/api/skin-analysis/analyze",
 			formData,
 			{
 				headers: { "Content-Type": "multipart/form-data" },
