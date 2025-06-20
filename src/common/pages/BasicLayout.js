@@ -25,28 +25,28 @@ const BasicLayout = ({children}) => {
 							<ul className={`menu-items ${menuOpen ? 'open' : ''}`}>
 								<li>
 									<NavLink
-											to="/skinAnalysis/upload"
+											to="/skin-analysis/upload"
 									>
 										나를 읽는 피부 분석
 									</NavLink>
 								</li>
 								<li className="dropdown-parent">
 									<NavLink
-											to="/skinresult/myresults"
+											to="/skin-analysis/history"
 									>
 										내 피부 이야기
 									</NavLink>
 									<ul className="dropdown">
 										<li>
 											<NavLink
-													to="/skinresult/myresults"
+													to="/skin-analysis/history"
 											>
 												오늘의 피부 분석 결과
 											</NavLink>
 										</li>
 										<li>
 											<NavLink
-													to="/skinresult/skinhistory"
+													to="/skin-analysis/history"
 											>
 												피부 요즘 상태 보고서
 											</NavLink>

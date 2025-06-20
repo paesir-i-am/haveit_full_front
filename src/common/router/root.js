@@ -20,7 +20,7 @@ const root = createBrowserRouter([
 		children: memberRouter(),
 	},
 	{
-		path: "skinAnalysis",
+		path: "skin-analysis",
 		children: skinAnalysisRouter(),
 	},
 ]);

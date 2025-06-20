@@ -4,11 +4,13 @@ import { uploadSkinAnalysisImage } from "../api/skinAnalysisApi";
 import "./css/SkinAnalysisPage.scss";
 import BasicLayout from "../../common/pages/BasicLayout";
 import { useCustomLogin } from "../../common/hook/useCustomLogin";
+import { useNavigate } from "react-router-dom";
 
 const SkinAnalysisPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [analyzing, setAnalyzing] = useState(false);
+  const navigate = useNavigate();
 
   const { isLogin, memberId } = useCustomLogin();
 
@@ -23,7 +25,7 @@ const SkinAnalysisPage = () => {
     try {
       const result = await uploadSkinAnalysisImage(selectedFile, memberId);
       console.log("분석 결과:", result);
-      // TODO: 결과 페이지 이동 또는 상태 처리
+      navigate("/skin-analysis/result", { state: { result } });
     } catch (error) {
       console.error("분석 실패:", error);
     } finally {

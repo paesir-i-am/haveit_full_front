@@ -30,13 +30,16 @@ const SkinAnalysisUploadBox = ({
 					{previewImage ? (
 							<img src={previewImage} alt="미리보기" className="preview-img" />
 					) : (
-							<span className="placeholder-text">이미지를 업로드하려면 클릭하세요</span>
+						<div>
+							<span className="placeholder-text">이미지를 업로드하려면 클릭하세요</span><br/>
+							<span className="placeholder-text">jpg, jpeg, png 확장자만 사용 가능합니다.</span>
+							</div>
 					)}
 				</div>
 
 				<input
 						type="file"
-						accept="image/*"
+						accept="image/jpeg, image/png, image/jpg"
 						ref={fileInputRef}
 						onChange={handleImageChange}
 						style={{ display: 'none' }}
