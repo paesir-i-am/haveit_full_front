@@ -51,7 +51,7 @@ const BasicLayout = ({children}) => {
 								</li>
 								<li>
 									<NavLink
-											to="/mentoring"
+											to="/chat"
 									>
 										너만을 위한 케어 도우미
 									</NavLink>
