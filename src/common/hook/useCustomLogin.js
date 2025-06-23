@@ -8,6 +8,7 @@ export const useCustomLogin = () => {
 	const loginState = useSelector((state) => state.loginSlice);
 
 	const isLogin = useSelector((state) => state.loginSlice.accessToken);
+	const memberId = useSelector((state) => state.loginSlice.id);
 
 	// 로그인 함수
 	const doLogin = async (loginParam) => {
@@ -63,6 +64,7 @@ export const useCustomLogin = () => {
 	return {
 		loginState,
 		isLogin,
+		memberId,
 		doLogin,
 		doSocialLogin,
 		doLogout,

@@ -1,0 +1,21 @@
+.skin-result-container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+
+  .left-section {
+    flex: 1;
+    max-width: 40%;
+  }
+
+  .right-section {
+    flex: 2;
+    max-width: 60%;
+  }
+
+  .error-section {
+    text-align: center;
+    padding: 2rem;
+  }
+}
+
