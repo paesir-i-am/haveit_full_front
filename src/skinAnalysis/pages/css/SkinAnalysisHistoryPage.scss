@@ -1,0 +1,49 @@
+.history-page {
+  padding: 2rem;
+  text-align: center;
+}
+
+.history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.history-card {
+  width: 280px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .summary {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    white-space: pre-line;
+  }
+
+  .time {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    color: gray;
+  }
+}
+
+.pagination {
+  margin-top: 2rem;
+  button {
+    margin: 0 1rem;
+  }
+}

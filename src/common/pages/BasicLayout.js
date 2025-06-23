@@ -2,9 +2,20 @@ import React, { useState } from 'react';
 import {NavLink} from 'react-router-dom';
 import "./css/BasicLayout.scss";
 import KakaoLoginButton from '../components/KakaoLoginButton';
+import { useCustomLogin } from '../hook/useCustomLogin';
 
 const BasicLayout = ({children}) => {
 	const [menuOpen, setMenuOpen] = useState(false);
+	const { isLogin } = useCustomLogin();
+
+	// 히스토리 클릭 시 로그인 여부 확인
+	const handleHistoryClick = (e) => {
+    if (!isLogin) {
+      e.preventDefault();
+      alert('로그인이 필요합니다.');
+    }
+  };
+
 
 	return (
 			<div>
@@ -32,26 +43,11 @@ const BasicLayout = ({children}) => {
 								</li>
 								<li className="dropdown-parent">
 									<NavLink
-											to="/skin-analysis/history"
+											to="/skin-analysis/history" 
+											onClick={handleHistoryClick}
 									>
 										내 피부 이야기
 									</NavLink>
-									<ul className="dropdown">
-										<li>
-											<NavLink
-													to="/skin-analysis/history"
-											>
-												오늘의 피부 분석 결과
-											</NavLink>
-										</li>
-										<li>
-											<NavLink
-													to="/skin-analysis/history"
-											>
-												피부 요즘 상태 보고서
-											</NavLink>
-										</li>
-									</ul>
 								</li>
 								<li>
 									<NavLink

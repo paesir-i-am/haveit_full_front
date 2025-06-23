@@ -21,11 +21,31 @@ const KakaoLoginButton = () => {
 	return <div>
 		{!isLogin ? (
 				<div>
-					<button onClick={handleLogin}>카카오 로그인</button>
+					<button onClick={handleLogin}
+					style={{
+						backgroundColor: '#FEE500',
+						color: 'black',
+						borderRadius: '10px',
+						border: 'none',
+						padding: '8px 16px',
+						fontSize: '16px',
+						fontWeight: 'bold',
+						cursor: 'pointer',
+					}}>로그인</button>
 				</div>
 		) : (
 				<div>
-					<button onClick={doLogout}>로그아웃</button>
+					<button onClick={doLogout}
+					style={{
+						backgroundColor: 'lightgray',
+						color: 'black',
+						borderRadius: '10px',
+						border: 'none',
+						padding: '8px 16px',
+						fontSize: '16px',
+						fontWeight: 'bold',
+						cursor: 'pointer',
+						}}>로그아웃</button>
 				</div>
 		)}
 

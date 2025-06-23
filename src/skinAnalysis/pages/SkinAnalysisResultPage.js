@@ -12,10 +12,12 @@ const SkinAnalysisResultPage = () => {
 
   if (!result) {
     return (
+      <BasicLayout>
       <div className="error-section">
         <p>분석 결과가 없습니다.</p>
         <button onClick={() => navigate('/')}>메인으로</button>
       </div>
+      </BasicLayout>
     );
   }
 

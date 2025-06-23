@@ -45,7 +45,7 @@ const SkinAnalysisUploadBox = ({
 						style={{ display: 'none' }}
 				/>
 
-				<button onClick={handleAnalysis} disabled={analyzing}>
+				<button onClick={handleAnalysis} disabled={analyzing || !selectedFile}>
 					{analyzing ? '분석 중...' : '분석 시작'}
 				</button>
 			</div>
