@@ -58,7 +58,7 @@ const BasicLayout = ({children}) => {
 								</li>
 							</ul>
 						</div>
-						<div className="nav-right-space">
+						<div className={`nav-right-space ${menuOpen ? 'open' : ''}`}>
 						{/*	로그인 로그아웃 구현 구역 */}
 							<KakaoLoginButton />
 						</div>
