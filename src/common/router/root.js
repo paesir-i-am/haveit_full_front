@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
 import MainPage from '../pages/MainPage';
+import ChatbotPage from '../../chat/pages/ChatbotPage';
 import memberRouter from './memberRouter';
 import skinAnalysisRouter from './skinAnalysisRouter';
 
@@ -22,6 +23,14 @@ const root = createBrowserRouter([
 	{
 		path: "skin-analysis",
 		children: skinAnalysisRouter(),
+	},
+	{
+		path: "chat",
+		element: (
+			<Suspense fallback={<Loading />}>
+				<ChatbotPage />
+			</Suspense>
+		),
 	},
 ]);
 
