@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import drawBoundingBoxesOnImage from '../util/drawBoundingBoxesOnImage';
 import { API_SERVER_HOST } from '../../common/api/mainApi';
+import './css/AnnotatedImageBox.scss';
 
 // 여드름 박스 그려진 이미지를 보여주는 컴포넌트
 const AnnotatedImageBox = ({ imagePath, acneBoxes }) => {
@@ -29,14 +30,14 @@ const AnnotatedImageBox = ({ imagePath, acneBoxes }) => {
     fetchAndAnnotate();
   }, [imagePath, acneBoxes]);
 
-  if (!annotatedImage) return <p>이미지 처리 중...</p>;
-
   return (
-    <img
-      src={annotatedImage}
-      alt="Bounding Box 시각화 이미지"
-      style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }}
-    />
+    <div className="annotated-image-container">
+      {annotatedImage ? (
+        <img src={annotatedImage} alt="Bounding Box 시각화 이미지" />
+      ) : (
+        <p>이미지 처리 중...</p>
+      )}
+    </div>
   );
 };
 

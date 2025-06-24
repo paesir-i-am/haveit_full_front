@@ -50,7 +50,7 @@ const ResultSummarySlider = ({ result }) => {
       content: (
         <div className="chart-grid">
           <div className="chart-item">
-            <p>이마: {result.pigmentations.forehead ?? '검출 불가 '}</p>
+            <p>이마 색소침착 분석 등급: {result.pigmentations.forehead ?? '검출 불가 '}</p>
             <PieChartWithNeedle value={result.pigmentations.forehead ?? 0} maxValue={5} title="이마" />
           </div>
           <div className="chart-item">

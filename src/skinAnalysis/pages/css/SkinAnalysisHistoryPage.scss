@@ -8,6 +8,8 @@
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .history-card {
@@ -16,9 +18,11 @@
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
+    transform: translateY(-5px);
     box-shadow: 0 0 8px rgba(0,0,0,0.15);
   }
 
@@ -29,15 +33,15 @@
   }
 
   .summary {
-    padding: 0.5rem;
-    font-size: 0.9rem;
-    white-space: pre-line;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
   }
-
   .time {
-    padding: 0.5rem;
-    font-size: 0.8rem;
-    color: gray;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+    color: #888;
   }
 }
 
