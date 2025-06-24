@@ -38,11 +38,11 @@ const MainPage = () => {
 	}, []);
 
 	const handleStartAnalysis = () => {
-		navigate("/skinanalysis");
+		navigate("/skin-analysis/upload");
 	};
 
 	const handleChatWithHaveit = () => {
-		navigate("/mentoring");
+		navigate("/chat");
 	};
 
 
