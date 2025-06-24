@@ -72,6 +72,8 @@ const PieChartWithNeedle = ({ value, maxValue = 5, title }) => {
     ? Math.max(0, Math.min(value, maxValue))
     : 0;
 
+  const width = 400;
+  const height = 300;
   const cx = 200;
   const cy = 200;
   const iR = 60;
@@ -85,7 +87,7 @@ const PieChartWithNeedle = ({ value, maxValue = 5, title }) => {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <PieChart width={400} height={400}>
+      <PieChart width={width} height={height}>
         <Pie
           data={data}
           dataKey="value"

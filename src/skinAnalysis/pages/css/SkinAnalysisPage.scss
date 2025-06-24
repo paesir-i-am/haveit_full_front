@@ -2,107 +2,123 @@ $mobile-breakpoint: 768px;
 
 .skin-analysis-page {
   width: 100%;
-  background-color: #f6f6f6;
+  background-color: #e0e1e9;
   font-family: 'Pretendard', sans-serif;
 
   .title-section {
-    width: 100%;
     text-align: center;
-    margin-top: 7.875rem;     // 126px
-    margin-bottom: 2.5rem;    // 40px
     background: #fff;
-    z-index: 10;
-    position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 2rem 1rem;
 
     h1 {
-      font-size: 2.2rem;      // 35.2px
+      font-size: 2.2rem;
       font-weight: bold;
-      margin-bottom: 1.125rem; // 18px
+      margin-bottom: 1rem;
       color: #222;
     }
 
     div {
-      font-size: 1.18rem;     // 18.9px
+      font-size: 1.125rem;
       color: #666;
     }
   }
 
   .upload-section {
-    width: 100vw;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     background: #e0e1e9;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    margin-left: calc(-50vw + 50%);
-    min-height: 31.25rem;     // 500px
-    padding: 2.5rem 0;         // 40px 0
+    align-items: flex-start;
+    padding: 2.5rem 1rem;
 
     .guideline-box {
-      flex: 0.7;
-      margin-right: 2.5rem;   // 40px
+      flex: 1;
+      min-width: 320px;
+      max-width: 600px;
+      margin: 1rem;
 
       h3 {
-        margin-bottom: 1.875rem; // 30px
-        font-size: 1.125rem;     // 18px
+        margin-bottom: 1.5rem;
+        font-size: 1.125rem;
       }
 
       .guideline-content {
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
 
         .image-box {
-          width: 18.75rem;     // 300px
+          flex: 1;
+          max-width: 300px;
 
           img {
-            width: 90%;
+            width: 100%;
             height: auto;
             border: 1px solid #ccc;
+            border-radius: 0.5rem;
           }
         }
 
         .text-list {
-          margin-left: 0.625rem; // 10px
           flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
 
           .tip-box {
             background: #f8f8f8;
             border: 1px solid #d0d0d0;
-            border-radius: 0.625rem; // 10px
-            box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.04);
-            padding: 1.125rem 1rem; // 18px 16px
-            font-size: 1.125rem;    // 18px
+            border-radius: 0.625rem;
+            padding: 1rem;
+            font-size: 1rem;
             text-align: center;
             font-weight: 500;
-            margin-bottom: 1.5rem;  // 24px
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
           }
         }
       }
     }
+
+    // SkinAnalysisUploadBox 위치
+    .skin-analysis-upload-box {
+      flex: 1;
+      min-width: 320px;
+      max-width: 600px;
+      margin: 1rem;
+    }
   }
 
   @media (max-width: $mobile-breakpoint) {
+    .title-section {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      div {
+        font-size: 1rem;
+      }
+    }
+
     .upload-section {
       flex-direction: column;
+      align-items: center;
 
-      .guideline-box {
-        margin-right: 0;
-        margin-bottom: 2.5rem; // 40px
+      .guideline-box,
+      .skin-analysis-upload-box {
+        max-width: 90%;
+        margin: 1rem 0;
       }
 
       .guideline-content {
         flex-direction: column;
+        align-items: center;
 
         .text-list {
-          margin-left: 0;
+          width: 100%;
         }
       }
     }
   }
 }
-

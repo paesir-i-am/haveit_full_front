@@ -252,7 +252,13 @@ main {
         width: 100%;
         justify-content: center;
         margin-top: 0.625rem;
+        display: None;
+
+        &.open {
+          display: flex;
+        }
       }
+
     }
 
     .mobile-menu-toggle {
@@ -272,10 +278,22 @@ main {
     padding-top: 3.125rem;
   }
 
-
 }
 
 .menu-items {
+  display: flex;
+
+  @media screen and (max-width: 48rem) {
+    display: none;
+
+    &.open {
+      display: flex;
+    }
+  }
+  
+}
+
+.nav-right-space {
   display: flex;
 
   @media screen and (max-width: 48rem) {

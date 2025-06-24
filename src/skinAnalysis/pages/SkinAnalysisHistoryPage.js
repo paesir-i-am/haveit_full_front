@@ -48,13 +48,13 @@ const SkinAnalysisHistoryPage = () => {
   return (
     <BasicLayout>
     <div className="history-page">
-      <h2>피부 분석 히스토리</h2>
+      <h1>피부 분석 히스토리</h1>
       <div className="history-list">
         {historyList.map(item => (
           <div key={item.id} className="history-card" onClick={() => handleClickDetail(item.id)}>
             <img src={`${API_SERVER_HOST}${item.imagePath}`} alt="분석 이미지" />
-            <div className="summary">{item.summary}</div>
-            <div className="time">{new Date(item.analyzedTime).toLocaleString()}</div>
+            <div className="summary">{item.summary.length > 20 ? item.summary.slice(0, 15) + '...' : item.summary}</div>
+            <div className="time">{new Date(item.analyzedTime).toLocaleDateString('ko-KR')}</div>
           </div>
         ))}
       </div>

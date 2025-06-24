@@ -50,7 +50,7 @@ const ResultSummarySlider = ({ result }) => {
       content: (
         <div className="chart-grid">
           <div className="chart-item">
-            <p>이마: {result.pigmentations.forehead ?? '검출 불가 '}</p>
+            <p>이마 색소침착 분석 등급: {result.pigmentations.forehead ?? '검출 불가 '}</p>
             <PieChartWithNeedle value={result.pigmentations.forehead ?? 0} maxValue={5} title="이마" />
           </div>
           <div className="chart-item">
@@ -72,14 +72,14 @@ const ResultSummarySlider = ({ result }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
   };
 
   return (
     <div className='slider-container'>
     <Slider {...settings}>
       {slides.map((slide, idx) => (
-        <div key={idx} className="slide-item">
+        <div key={idx} className={`slide-item ${slide.title === '사용자 사진 분석 결과' ? 'centered-text' : ''}`}>
           <h3>{slide.title}</h3>
           <div>{slide.content}</div>
         </div>
