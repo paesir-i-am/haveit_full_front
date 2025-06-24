@@ -1,18 +1,16 @@
 .detail-page {
-  padding: 3rem 2rem;
   text-align: center;
   background-color: #ffffff;
 
   h1 {
-    font-size: 2.4rem;
     font-weight: bold;
-    margin-bottom: 3rem;
     color: #333;
+    margin: 1.5rem 0 2rem;
   }
 
   .skin-result-container {
     display: flex;
-    gap: 3rem;
+    gap: 1rem;
     justify-content: center;
     align-items: flex-start;
     padding: 3rem 6rem;
