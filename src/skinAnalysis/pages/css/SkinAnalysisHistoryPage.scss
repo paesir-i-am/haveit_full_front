@@ -1,5 +1,5 @@
 .history-page {
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
   text-align: center;
 }
 
@@ -16,14 +16,14 @@
 .history-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem 1rem;
   justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .history-card {
-  width: 280px;
+  width: 224px;
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
@@ -38,19 +38,19 @@
 
   img {
     width: 100%;
-    height: 200px;
+    height: 160px;
     object-fit: cover;
   }
 
   .summary {
-    padding: 0.8rem;
-    font-size: 1rem;
+    padding: 0.6rem;
+    font-size: 0.95rem;
     font-weight: 500;
     color: #333;
   }
   .time {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
     color: #888;
   }
 }

@@ -26,7 +26,7 @@ const SkinAnalysisHistoryPage = () => {
 
   const loadHistory = async () => {
     try {
-      const result = await getSkinAnalysisHistoryList(memberId, page, 8);
+      const result = await getSkinAnalysisHistoryList(memberId, page, 10);
       console.log(result);
       setHistoryList(result.content);
       setTotalPages(result.totalPages);

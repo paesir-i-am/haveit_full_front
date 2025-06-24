@@ -19,7 +19,7 @@ export const uploadSkinAnalysisImage = async (image, memberId) => {
 };
 
 // 히스토리 리스트 조회 API
-export const getSkinAnalysisHistoryList = async (memberId, page = 0, size = 8) => {
+export const getSkinAnalysisHistoryList = async (memberId, page = 0, size = 10) => {
 	const response = await axiosInstance.get(
 		"/api/skin-analysis/history",
 		{params : {memberId, page, size}}
