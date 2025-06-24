@@ -1,39 +1,58 @@
 .detail-page {
-  padding: 2rem;
+  padding: 3rem 2rem;
   text-align: center;
+  background-color: #ffffff;
 
   h1 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: bold;
-    margin: 1.125rem 0;
-    color: #222;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin-bottom: 3rem;
+    color: #333;
   }
 
   .skin-result-container {
     display: flex;
-    gap: 2rem;
-    padding: 0 20rem;
+    gap: 3rem;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3rem 6rem;
+    background-color: #e0e1e9;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  }
 
-    .left-section {
-      flex: 1;
-      max-width: 40%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  .left-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 40%;
+  }
 
-    .right-section {
-      flex: 2;
-      max-width: 60%;
-      align-self: center;
-    }
+  .right-section {
+    flex: 2;
+    max-width: 60%;
+    padding: 2rem;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   }
 
   .error-section {
     text-align: center;
     padding: 2rem;
+  }
+
+  @media (max-width: 1024px) {
+    .skin-result-container {
+      flex-direction: column;
+      padding: 2rem;
+    }
+
+    .left-section,
+    .right-section {
+      max-width: 100%;
+    }
   }
 }
