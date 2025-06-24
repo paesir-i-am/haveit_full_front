@@ -1,6 +1,7 @@
 .slider-container {
   position: relative;
   overflow: visible;
+  height: 100%;
 
   .slick-prev:before, .slick-next:before {
     display: block !important;
@@ -13,16 +14,19 @@
     left: 0px;
     z-index: 999;
   }
+
   .slick-next {
     right: 0px;
     z-index: 999;
   }
+}
 
 .slide-item {
   padding: 1rem;
   text-align: center;
   box-sizing: border-box;
   overflow: hidden;
+  height: 100%;
 
   h3 {
     margin-bottom: 1rem;
@@ -31,7 +35,7 @@
   .chart-grid {
     display: flex;                 
     justify-content: center;  
-    flex-wrap: nowrap;   
+    flex-wrap: wrap;   
     gap: 1.5rem;
     width: 100%;
     padding: 0 2rem;  
@@ -39,7 +43,7 @@
     max-width: none;
 
     .chart-item {
-      flex: 0 0 calc((100% - 3rem) / 3);
+      flex: 1 1 30%;
       max-width: 100%;
       min-width: 260px; 
       display: flex;
@@ -76,5 +80,39 @@
       }
     }
   }
+
+  &.centered-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    height: 100%;
+  }
 }
+
+@media (max-width: 768px) {
+  .slide-item {
+    padding: 0.5rem;
+
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  .chart-grid {
+    flex-direction: column;
+    align-items: center;
+
+    .chart-item {
+      width: 90%;
+      min-width: unset;
+    }
+  }
+
+  .centered-text {
+    padding: 1rem;
+    font-size: 1rem;
+    text-align: center;
+  }
 }

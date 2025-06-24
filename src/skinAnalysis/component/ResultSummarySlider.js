@@ -72,14 +72,14 @@ const ResultSummarySlider = ({ result }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
   };
 
   return (
     <div className='slider-container'>
     <Slider {...settings}>
       {slides.map((slide, idx) => (
-        <div key={idx} className="slide-item">
+        <div key={idx} className={`slide-item ${slide.title === '사용자 사진 분석 결과' ? 'centered-text' : ''}`}>
           <h3>{slide.title}</h3>
           <div>{slide.content}</div>
         </div>
