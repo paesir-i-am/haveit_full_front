@@ -1,0 +1,22 @@
+.chatbot-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  min-height: 85vh;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  .chatbot-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 100%;
+    max-width: 480px; 
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+}
