@@ -3,6 +3,16 @@
   text-align: center;
 }
 
+.h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 1.125rem 0;
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
 .history-list {
   display: flex;
   flex-wrap: wrap;
@@ -22,8 +32,8 @@
   transition: 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
   }
 
   img {
@@ -47,7 +57,43 @@
 
 .pagination {
   margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;   // 버튼 사이 간격
+
   button {
-    margin: 0 1rem;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #888;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover:not(:disabled) {
+      background-color: #e99899;  // 파란색 배경
+      color: white;
+      border-color: #e99899;
+      box-shadow: 0 0 8px rgba(233, 152, 153, 0.5);
+    }
+
+    &:disabled {
+      color: #bbb;
+      border-color: #ccc;
+      cursor: not-allowed;
+      background-color: #f9f9f9;
+      box-shadow: none;
+    }
+  }
+
+  span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555;
+    min-width: 60px;
+    text-align: center;
   }
 }

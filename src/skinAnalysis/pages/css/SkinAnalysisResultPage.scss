@@ -1,19 +1,35 @@
-.skin-result-container {
-  display: flex;
-  gap: 2rem;
-  padding: 5rem 20rem;
+.detail-page {
+  padding: 2rem;
+  text-align: center;
 
-  .left-section {
-    flex: 1;
-    max-width: 40%;
-    display: flex;
-    justify-content: center;   // 가로 가운데 정렬
-    align-items: center;       // 세로 가운데 정렬
+  h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 1.125rem 0;
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  .right-section {
-    flex: 2;
-    max-width: 60%;
+  .skin-result-container {
+    display: flex;
+    gap: 2rem;
+    padding: 0 20rem;
+
+    .left-section {
+      flex: 1;
+      max-width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .right-section {
+      flex: 2;
+      max-width: 60%;
+      align-self: center;
+    }
   }
 
   .error-section {
@@ -21,4 +37,3 @@
     padding: 2rem;
   }
 }
-

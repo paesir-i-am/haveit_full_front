@@ -8,8 +8,8 @@ $mobile-breakpoint: 768px;
   .title-section {
     width: 100%;
     text-align: center;
-    margin-top: 7.875rem;     // 126px
-    margin-bottom: 2.5rem;    // 40px
+    padding: 2.5rem 0;
+    margin: 0;
     background: #fff;
     z-index: 10;
     position: relative;
@@ -20,7 +20,7 @@ $mobile-breakpoint: 768px;
     h1 {
       font-size: 2.2rem;      // 35.2px
       font-weight: bold;
-      margin-bottom: 1.125rem; // 18px
+      margin: 1.125rem 0; // 18px
       color: #222;
     }
 

@@ -48,7 +48,7 @@ const SkinAnalysisHistoryPage = () => {
   return (
     <BasicLayout>
     <div className="history-page">
-      <h2>피부 분석 히스토리</h2>
+      <h1>피부 분석 히스토리</h1>
       <div className="history-list">
         {historyList.map(item => (
           <div key={item.id} className="history-card" onClick={() => handleClickDetail(item.id)}>
