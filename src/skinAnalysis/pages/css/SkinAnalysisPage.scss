@@ -90,7 +90,6 @@ $mobile-breakpoint: 768px;
     }
   }
 
-  // 모바일 반응형
   @media (max-width: $mobile-breakpoint) {
     .title-section {
       h1 {
