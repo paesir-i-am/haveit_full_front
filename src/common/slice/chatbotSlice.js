@@ -9,6 +9,7 @@ const initialState = {
   qualityScore: null,
 };
 
+
 const chatbotSlice = createSlice({
   name: 'chatbot',
   initialState,
@@ -37,6 +38,9 @@ const chatbotSlice = createSlice({
       state.qualityScore = action.payload.qualityScore;
     },
     resetChat: () => initialState,
+    setMessages: (state, action) => {
+      state.messages = action.payload;
+    },
   },
 });
 
@@ -45,6 +49,7 @@ export const {
   addBotMessage,
   setLoading,
   setToolsAndScore,
+  setMessages,
   resetChat,
 } = chatbotSlice.actions;
 

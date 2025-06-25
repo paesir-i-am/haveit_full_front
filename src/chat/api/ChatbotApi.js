@@ -10,3 +10,8 @@ export const sendChatToBot = async (memberId, userQuery) => {
   console.log(response.data);
   return response.data.response;
 }
+
+export const getLatestChatHistory = async (memberId) => {
+  const response = await axiosInstance.get(`/api/chatbot/session/latest?memberId=${memberId}`);
+  return response.data;
+}

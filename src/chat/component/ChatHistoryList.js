@@ -4,8 +4,9 @@ import { formatTime } from '../../common/util/formatTime';
 import './css/ChatHistoryList.scss';
 
 const ChatHistoryList = () => {
-  const messages = useSelector((state) => state.chatbotSlice.messages);
-
+  const chatbotState = useSelector((state) => state.chatbotSlice);
+  const messages = chatbotState?.messages || [];
+  
   return (
     <div className="chat-history-list">
       {messages.map((msg) => (
