@@ -4,6 +4,7 @@ import BasicLayout from '../../common/pages/BasicLayout';
 import './css/SkinAnalysisResultPage.scss';
 import AnnotatedImageBox from '../component/AnnotatedImageBox';
 import ResultSummarySlider from '../component/ResultSummarySlider';
+import SkinResultGuide from '../component/SkinResultGuide';
 
 const SkinAnalysisResultPage = () => {
   const location = useLocation();
@@ -33,6 +34,7 @@ const SkinAnalysisResultPage = () => {
             <ResultSummarySlider result={result} />
           </div>
         </div>
+        <SkinResultGuide />
       </div>
     </BasicLayout>
   );
