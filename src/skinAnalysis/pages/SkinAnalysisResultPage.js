@@ -2,7 +2,6 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import BasicLayout from '../../common/pages/BasicLayout';
 import './css/SkinAnalysisResultPage.scss';
-import AnnotatedImageBox from '../component/AnnotatedImageBox';
 import ResultSummarySlider from '../component/ResultSummarySlider';
 import SkinResultGuide from '../component/SkinResultGuide';
 
@@ -28,13 +27,12 @@ const SkinAnalysisResultPage = () => {
         <h1>피부 분석 결과 상세보기</h1>
         <div className="skin-result-container">
           <div className="left-section">
-            <AnnotatedImageBox imagePath={result.imagePath} acneBoxes={result.acneBoxes} />
+            <SkinResultGuide />
           </div>
           <div className="right-section">
             <ResultSummarySlider result={result} />
           </div>
         </div>
-        <SkinResultGuide />
       </div>
     </BasicLayout>
   );

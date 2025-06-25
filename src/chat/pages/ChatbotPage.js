@@ -84,18 +84,29 @@ const ChatbotPage = () => {
   return (
     <BasicLayout>
       <div className="chatbot-page">
-    <div className="chatbot-wrapper">
-      <ChatHistoryList />
-      <SelectedToolBar />
-      <ChatInputBox
-        input={input}
-        setInput={setInput}
-        onSend={handleSend}
-        loading={loading}
-        disabled={!memberId}
-      />
-    </div>
-    </div>
+        <div className="chatbot-layout">
+          <div className="left-panel">
+            <div className="headline">
+              <p className="sub-text">너만을 위한 케어 도우미</p>
+              <h1 className="main-title">HAVEIT</h1>
+            </div>
+            <p className="notice-text">
+              ※ 일부 응답은 답변에 시간이 소요될 수 있습니다.
+            </p>
+          </div>
+          <div className="chatbot-wrapper">
+            <ChatHistoryList />
+            <SelectedToolBar />
+            <ChatInputBox
+              input={input}
+              setInput={setInput}
+              onSend={handleSend}
+              loading={loading}
+              disabled={!memberId}
+            />
+          </div>
+        </div>
+      </div>
     </BasicLayout>
   );
 };

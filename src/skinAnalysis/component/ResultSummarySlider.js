@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import PieChartWithNeedle from './PieChartWithNeedle';
+import AnnotatedImageBox from '../component/AnnotatedImageBox';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './css/ResultSummarySlider.scss';
@@ -9,7 +10,7 @@ const ResultSummarySlider = ({ result }) => {
   const slides = [
     {
       title: '사용자 사진 분석 결과',
-      content: <p style={{ whiteSpace: 'pre-line' }}>{result.summary}</p>,
+      content: <AnnotatedImageBox imagePath={result.imagePath} acneBoxes={result.acneBoxes} />,
     },
     {
       title: '모공 분석',

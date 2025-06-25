@@ -20,3 +20,45 @@
     overflow: hidden;
   }
 }
+
+.chatbot-layout {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.left-panel {
+  flex: 1;
+  background: linear-gradient(to bottom, #f8f9fa, #f8f9fa);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 90vh;
+
+  .headline {
+    text-align: left;
+
+    .sub-text {
+      font-size: 2rem;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+
+    .main-title {
+      font-size: 8rem;
+      font-weight: 800;
+      color: #e99899;
+      letter-spacing: -1px;
+    }
+  }
+
+  .notice-text {
+    font-size: 0.85rem;
+    color: #999;
+    text-align: right;
+  }
+}
