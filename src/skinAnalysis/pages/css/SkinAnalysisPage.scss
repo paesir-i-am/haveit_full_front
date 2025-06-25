@@ -47,7 +47,7 @@ $mobile-breakpoint: 768px;
 
       .guideline-content {
         display: flex;
-        flex-wrap: wrap;
+        align-items: center;
         gap: 1rem;
 
         .image-box {

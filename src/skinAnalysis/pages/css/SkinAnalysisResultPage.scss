@@ -17,6 +17,9 @@
     background-color: #e0e1e9;
     border-radius: 1.5rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .left-section {
@@ -54,26 +57,30 @@
     padding: 2rem;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+
+    h1 {
+      font-size: 1.6rem;
+      max-width: 100%;
+      margin: 1rem 0 1.5rem;
+    }
+
     .skin-result-container {
+      padding: 1.5rem 1rem;
+      max-width: 100%;
       flex-direction: column;
-      padding: 2rem;
     }
 
     .left-section,
     .right-section {
       max-width: 100%;
       width: 100%;
-    }
-
-    .left-section img,
-    .right-section > * {
-      width: 100%;
-      height: auto;
+      margin-bottom: 1.5rem;
     }
 
     .right-section {
-      width: 100%;
+      padding: 1rem;
       min-height: auto;
     }
   }
