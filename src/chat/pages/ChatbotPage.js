@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useCustomLogin } from '../../common/hook/useCustomLogin';
-import { sendChatToBot } from '../api/ChatbotApi';
+import { getLatestChatHistory, sendChatToBot } from '../api/ChatbotApi';
 import {
   addUserMessage,
   addBotMessage,
   setLoading,
   setToolsAndScore,
+  setMessages,
 } from '../../common/slice/chatbotSlice';
+import { v4 as uuid } from 'uuid';
 
 import ChatHistoryList from '../component/ChatHistoryList';
 import ChatInputBox from '../component/ChatInputBox';
@@ -20,6 +22,42 @@ const ChatbotPage = () => {
   const { memberId } = useCustomLogin();
   const [input, setInput] = useState('');
   const loading = useSelector(state => state.chatbotSlice.loading);
+
+
+  useEffect(() => {
+    const fetchLatestChatHistory = async () => {
+      if (!memberId) {
+        // 비로그인 안내 멘트
+        const messagesWithId = [{
+          id: uuid(),
+          sender: 'bot',
+          message: '챗봇 서비스를 이용하려면 로그인이 필요합니다.',
+          timestamp: new Date().toISOString(),
+        }];
+        dispatch(setMessages(messagesWithId));
+        return;
+      }
+      const response = await getLatestChatHistory(memberId);
+      let messagesWithId = (response || []).map(msg => ({
+        ...msg,
+        id: uuid(),
+      }));
+
+      if (messagesWithId.length === 0) {
+        messagesWithId = [{
+          id: uuid(),
+          sender: 'bot',
+          message: '안녕하세요! 무엇을 도와드릴까요?',
+          timestamp: new Date().toISOString(),
+        }];
+      }
+
+      dispatch(setMessages(messagesWithId));
+      console.log('response:', response);
+      console.log('messagesWithId:', messagesWithId);
+    };
+    fetchLatestChatHistory();
+  }, [memberId, dispatch]);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -49,7 +87,13 @@ const ChatbotPage = () => {
     <div className="chatbot-wrapper">
       <ChatHistoryList />
       <SelectedToolBar />
-      <ChatInputBox input={input} setInput={setInput} onSend={handleSend} loading={loading} />
+      <ChatInputBox
+        input={input}
+        setInput={setInput}
+        onSend={handleSend}
+        loading={loading}
+        disabled={!memberId}
+      />
     </div>
     </div>
     </BasicLayout>
