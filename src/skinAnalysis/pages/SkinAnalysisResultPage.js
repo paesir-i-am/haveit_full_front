@@ -23,14 +23,16 @@ const SkinAnalysisResultPage = () => {
 
   return (
     <BasicLayout>
-      <div className="detail-page">
-        <h1>피부 분석 결과 상세보기</h1>
-        <div className="skin-result-container">
-          <div className="left-section">
-            <SkinResultGuide />
-          </div>
-          <div className="right-section">
-            <ResultSummarySlider result={result} />
+      <div className="skin-analysis-result-page">
+        <div className="detail-page">
+          <h1>피부 분석 결과 상세보기</h1>
+          <div className="skin-result-container">
+            <div className="left-section">
+              <SkinResultGuide />
+            </div>
+            <div className="right-section">
+              <ResultSummarySlider result={result} />
+            </div>
           </div>
         </div>
       </div>

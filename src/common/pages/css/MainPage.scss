@@ -5,9 +5,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5.625rem 0.625rem;
+  padding: 5.625rem 1.25rem;
   text-align: left;
-  height: 40.625rem;
+  min-height: 40.625rem;
+  box-sizing: border-box;
 
   &.visible {
     .reveal-item:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
@@ -24,6 +25,7 @@
     width: 100%;
     max-width: 68.75rem;
     justify-content: space-between;
+    gap: 2rem;
   }
 
   .slogan-text {
@@ -33,7 +35,7 @@
     align-items: flex-start;
     justify-content: center;
     margin-top: 2.5rem;
-    margin-left: 1.25rem;
+    margin-left: 0;
 
     p {
       font-size: 1.8rem;
@@ -41,6 +43,7 @@
       max-width: 37.5rem;
       font-weight: 800;
       text-align: left;
+      line-height: 1.4;
     }
 
     .highlight {
@@ -62,14 +65,14 @@
   .slogan-image {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    margin-left: 6.25rem;
-    margin-right: 1.25rem;
+    margin-left: 0;
+    margin-right: 0;
 
     img {
       max-width: 25rem;
-      width: 120%;
+      width: 100%;
       height: auto;
       border-radius: 2rem;
       box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.12);
@@ -77,36 +80,110 @@
     }
   }
 
+
+  // 태블릿 세로 모드
   @media (max-width: 900px) {
+    padding: 4rem 1rem;
+    
     .slogan-content {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .slogan-text {
+      margin-left: 0;
+      margin-top: 1rem;
+      align-items: center;
+      text-align: center;
+
+      p {
+        text-align: center;
+        max-width: 100%;
+      }
     }
 
     .slogan-image {
       margin-left: 0;
-      margin-top: 1.875rem;
+      margin-top: 1rem;
       justify-content: center;
       width: 100%;
 
       img {
-        max-width: 15.625rem;
+        max-width: 18rem;
+        margin-top: 1rem;
       }
     }
   }
 
+  // 모바일 반응형
   @media (max-width: 768px) {
-    height: auto;
-    padding: 2.5rem 0.625rem;
+    padding: 3rem 1rem;
+    min-height: auto;
+
+    .slogan-content {
+      margin-top: 1rem;
+      gap: 1.5rem;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+    }
 
     .slogan-text {
-      p,
-      .highlight {
+      margin-top: 0.5rem;
+      align-items: flex-start;
+      text-align: left;
+      width: 100%;
+      p {
         font-size: 1.2rem;
+        margin: 0.3rem 0;
+        line-height: 1.5;
+        text-align: left;
+      }
+      .highlight {
+        font-size: 1.4rem;
+        margin: 1rem 0;
+      }
+      .brand {
+        font-size: 1.6rem;
+      }
+    }
+
+    .slogan-image {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+      img {
+        max-width: 15rem;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  // 작은 모바일
+  @media (max-width: 480px) {
+    padding: 2rem 0.5rem;
+
+    .slogan-text {
+      p {
+        font-size: 1.1rem;
+      }
+
+      .highlight {
+        font-size: 1.3rem;
       }
 
       .brand {
         font-size: 1.5rem;
+      }
+    }
+
+    .slogan-image {
+      img {
+        max-width: 12rem;
       }
     }
   }
@@ -123,7 +200,8 @@
   cursor: pointer;
   font-weight: bold;
   transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-  margin-right: 6.25rem;
+  margin-right: 0;
+  white-space: nowrap;
 
   &:hover,
   &:focus {
@@ -131,6 +209,28 @@
     box-shadow: 0 0.25rem 1rem rgba(233, 152, 153, 0.3);
     transform: translateY(-0.125rem) scale(1.03);
     outline: none;
+  }
+
+  @media (max-width: 1024px) {
+    margin-right: 0;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 900px) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    margin-top: 1.5rem !important;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -159,9 +259,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5.625rem 0.625rem;
+  padding: 5.625rem 1.25rem;
   position: relative;
   z-index: 2;
+  min-height: 40.625rem;
+  box-sizing: border-box;
 
   &.visible {
     .reveal-item:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
@@ -177,6 +279,7 @@
     width: 100%;
     max-width: 70rem;
     justify-content: space-between;
+    gap: 2rem;
   }
 
   .chatbot-text {
@@ -186,7 +289,7 @@
     align-items: flex-end;
     justify-content: center;
     margin-top: 2.5rem;
-    margin-left: 15rem;
+    margin-left: 0;
 
     p {
       font-size: 1.8rem;
@@ -194,6 +297,7 @@
       text-align: right;
       color: #444;
       margin: 0;
+      line-height: 1.4;
     }
   }
 
@@ -208,7 +312,8 @@
     cursor: pointer;
     font-weight: bold;
     transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-    margin-left: 6.25rem;
+    margin-left: 0;
+    white-space: nowrap;
 
     &:hover,
     &:focus {
@@ -222,9 +327,9 @@
   .chatbot-image {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    margin-left: 5rem;
+    margin-left: 0;
 
     img {
       max-width: 20rem;
@@ -235,37 +340,140 @@
     }
   }
 
-  @media (max-width: 900px) {
+  // 태블릿 반응형
+  @media (max-width: 1024px) {
+    padding: 4rem 1rem;
+    min-height: auto;
+
     .chatbot-content {
-      flex-direction: column;
-      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .chatbot-text {
+      margin-left: 0;
+      margin-top: 2rem;
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+
+    .chatbot-btn {
+      margin-left: 0;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
     }
 
     .chatbot-image {
       margin-left: 0;
-      margin-top: 1.875rem;
+
+      img {
+        max-width: 16rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  // 태블릿 세로 모드
+  @media (max-width: 900px) {
+    padding: 4rem 1rem;
+    
+    .chatbot-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .chatbot-text {
+      margin-left: 0;
+      margin-top: 1rem;
+      align-items: center;
+      text-align: center;
+
+      p {
+        text-align: center;
+      }
+    }
+
+    .chatbot-btn {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .chatbot-image {
+      margin-left: 0;
+      margin-top: 1rem;
       justify-content: center;
       width: 100%;
 
       img {
-        max-width: 15.625rem;
+        max-width: 18rem;
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  // 모바일 반응형
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+    min-height: auto;
+
+    .chatbot-content {
+      gap: 1.5rem;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+      text-align: right;
+    }
+
+    .chatbot-image {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      img {
+        max-width: 15rem;
+        margin-top: 0.5rem;
       }
     }
 
     .chatbot-text {
-      align-items: flex-start;
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding: 2.5rem 0.625rem;
-
-    .chatbot-text p {
-      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      align-items: flex-end;
+      text-align: right;
+      width: 100%;
+      p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        text-align: right;
+      }
     }
 
     .chatbot-btn {
+      padding: 0.8rem 1.5rem;
       font-size: 1rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  // 작은 모바일
+  @media (max-width: 480px) {
+    padding: 2rem 0.5rem;
+
+    .chatbot-text p {
+      font-size: 1.1rem;
+    }
+
+    .chatbot-btn {
+      padding: 0.7rem 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .chatbot-image {
+      img {
+        max-width: 12rem;
+      }
     }
   }
 }

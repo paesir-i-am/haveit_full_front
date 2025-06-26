@@ -2,15 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f8f9fa;
-  min-height: 85vh;
+  background: linear-gradient(135deg, #fdf7f7 0%, #faf5f5 25%, #f7f2f2 50%, #f4efef 75%, #f1ecec 100%);
+  min-height: 100%;
   padding: 1rem;
   box-sizing: border-box;
 
   .chatbot-wrapper {
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    height: 80vh;
     width: 100%;
     max-width: 480px; 
     background-color: #ffffff;
@@ -26,39 +26,259 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .left-panel {
   flex: 1;
-  background: linear-gradient(to bottom, #f8f9fa, #f8f9fa);
+  background-color: transparent;
   border-radius: 16px;
-  padding: 3rem 2rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 90vh;
+  min-height: 80vh;
 
   .headline {
     text-align: left;
 
     .sub-text {
-      font-size: 2rem;
-      color: #555;
-      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      color: #444;
+      margin-bottom: 0;
+      font-weight: 800;
+      line-height: 1.4;
     }
 
     .main-title {
-      font-size: 8rem;
-      font-weight: 800;
+      font-size: 6rem;
+      font-weight: 900;
       color: #e99899;
-      letter-spacing: -1px;
+      letter-spacing: -0.02em;
+      margin: 0;
+      line-height: 1;
     }
   }
 
-  .notice-text {
-    font-size: 0.85rem;
-    color: #999;
+  .description {
     text-align: right;
+    margin-top: auto;
+
+    .description-text {
+      color: #444;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+
+      &.first-text {
+        font-size: 1.2rem;
+      }
+
+      &.second-text {
+        font-size: 1.8rem;
+      }
+    }
+
+    .notice-text {
+      font-size: 0.9rem;
+      color: #666;
+      text-align: right;
+      margin-top: 1rem;
+      line-height: 1.4;
+    }
+  }
+}
+
+.color-point {
+  color: #e99899;
+  font-weight: 900;
+}
+
+// 모바일 반응형
+@media (max-width: 768px) {
+  .chatbot-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 100vh;
+    width: 100%;
+    padding: 1rem 2vw;
+    box-sizing: border-box;
+  }
+  .left-panel.mobile {
+    border: 1px solid #e99899;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(233, 152, 153, 0.22);
+    background: #fff;
+    margin-bottom: 1rem;
+  }
+  .chatbot-layout {
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+  .mobile-toggle-area {
+    margin-bottom: 0;
+  }
+  
+  .mobile-toggle-area {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .mobile-toggle-btn {
+      width: 100%;
+      max-width: 480px;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      background: #fff;
+      color: #e99899;
+      border: 1px solid #e99899;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      
+      &:hover {
+        background-color: #e99899;
+        color: #fff;
+      }
+    }
+  }
+  
+  .left-panel.mobile {
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+    z-index: 2;
+    padding: 1.5rem 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    
+    &.closed {
+      transform: translateY(-100%);
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 0;
+      height: 0;
+      overflow: hidden;
+      pointer-events: none;
+      background: #fff;
+      
+      .headline,
+      .description {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+    
+    &.open {
+      transform: translateY(0);
+      opacity: 1;
+      position: relative;
+      
+      .headline,
+      .description {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+    
+    .headline {
+      margin-bottom: 2rem;
+      
+      .sub-text {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      
+      .main-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+    }
+    
+    .description {
+      margin-top: 0;
+      
+      .description-text {
+        &.first-text {
+          font-size: 0.85rem;
+          margin-bottom: 0.8rem;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+        }
+        
+        &.second-text {
+          font-size: 1rem;
+          margin-bottom: 1rem;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+        }
+      }
+      
+      .notice-text {
+        font-size: 0.7rem;
+        margin-top: 0.5rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+    }
+    
+    .panel-close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #fff;
+      border: 1px solid #e99899;
+      font-size: 1.2rem;
+      color: #e99899;
+      cursor: pointer;
+      z-index: 10;
+      padding: 0.5rem;
+      border-radius: 50%;
+      transition: all 0.2s;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      &:hover {
+        background-color: #e99899;
+        color: #fff;
+      }
+    }
+  }
+  
+  .chatbot-wrapper {
+    height: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+    border-radius: 16px;
+    margin-top: 0;
   }
 }

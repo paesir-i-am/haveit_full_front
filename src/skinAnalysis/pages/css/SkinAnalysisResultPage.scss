@@ -1,6 +1,8 @@
 .detail-page {
   text-align: center;
   background-color: #ffffff;
+  width: 100%;
+  overflow-x: hidden;
 
   h1 {
     font-weight: bold;
@@ -11,22 +13,30 @@
   .skin-result-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 3rem 6rem;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 2.5rem 6rem;
     background-color: #e0e1e9;
     border-radius: 1.5rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+    min-height: 500px;
+    box-sizing: border-box;
   }
 
   .left-section {
     flex: 1;
-    max-width: 60%;
+    max-width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem 0.8rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
 
     img {
       width: 100%;
@@ -36,14 +46,15 @@
   }
 
   .right-section {
-    flex: none;
-    width: 40%;
+    flex: 1;
+    width: 50%;
     min-height: 400px;
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: left;
     background-color: #fff;
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
 
     > * {
       width: 100%;
@@ -57,30 +68,46 @@
   }
 
   @media (max-width: 768px) {
-    padding: 0 1rem;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
 
     h1 {
-      font-size: 1.6rem;
+      font-size: clamp(1.2rem, 4vw, 1.4rem);
       max-width: 100%;
-      margin: 1rem 0 1.5rem;
+      margin: 1rem 0 1.2rem;
+      padding: 0 1rem;
+      display: none;
     }
 
     .skin-result-container {
-      padding: 1.5rem 1rem;
-      max-width: 100%;
+      max-width: 100vh;
+      padding: 1rem 0.5rem;
       flex-direction: column;
+      gap: 1rem;
+      min-height: auto;
+      border-radius: 1rem;
+      box-sizing: border-box;
     }
 
     .left-section,
     .right-section {
-      max-width: 100%;
       width: 100%;
-      margin-bottom: 1.5rem;
+      max-width: 100%;
+      margin-bottom: 0;
+      border-radius: 0.8rem;
+      box-sizing: border-box;
+    }
+
+    .left-section {
+      padding: 1rem 0.8rem;
+      min-height: auto;
     }
 
     .right-section {
-      padding: 1rem;
+      padding: 0.8rem;
       min-height: auto;
+      width: 100%;
     }
   }
 }
