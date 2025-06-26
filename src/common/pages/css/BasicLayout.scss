@@ -178,10 +178,13 @@ main {
 
 @media screen and (max-width: 48rem) {
   nav {
+    min-height: 3.75rem;
+    box-shadow: none;
+    border-bottom: 1px solid #e0e0e0;
     height: auto;
     flex-direction: column;
-    align-items: stretch;
-    padding: 0.625rem 0;
+    align-items: center;
+    padding: 0;
 
     .nav-container {
       flex-direction: column;
@@ -191,7 +194,6 @@ main {
         width: 100%;
         text-align: center;
         margin-top: 0.5rem;
-
 
         a {
           font-size: 1.5rem;
@@ -210,6 +212,10 @@ main {
 
           &.open {
             display: flex;
+          }
+
+          li:first-child {
+            margin-top: 1.25rem;
           }
 
           li {
@@ -252,10 +258,12 @@ main {
         width: 100%;
         justify-content: center;
         margin-top: 0.625rem;
-        display: None;
-
+        display: none;
         &.open {
           display: flex;
+        }
+        > * {
+          margin-bottom: 1.25rem;
         }
       }
 

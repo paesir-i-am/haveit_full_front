@@ -38,7 +38,7 @@ const SkinAnalysisPage = () => {
       <div className="skin-analysis-page">
         <div className="title-section">
           <h1>내 피부, 들여다보기</h1>
-          <div>
+          <div className="sub-title">
             사진을 업로드하면, HAVIT이 당신의 피부 상태를 분석해드립니다.
           </div>
         </div>

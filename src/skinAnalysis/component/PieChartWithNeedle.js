@@ -58,7 +58,7 @@ const renderLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, index, value 
       y={y}
       textAnchor="middle"
       dominantBaseline="middle"
-      fontSize="14px"
+      fontSize="12px"
       fill="#333"
       fontWeight="bold"
     >
@@ -67,17 +67,16 @@ const renderLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, index, value 
   );
 };
 
-const PieChartWithNeedle = ({ value, maxValue = 5, title }) => {
+const PieChartWithNeedle = ({ value, maxValue = 5, title, width = 300, height = 200 }) => {
   const safeValue = typeof value === 'number' && !isNaN(value)
     ? Math.max(0, Math.min(value, maxValue))
     : 0;
 
-  const width = 400;
-  const height = 300;
-  const cx = 200;
-  const cy = 200;
-  const iR = 60;
-  const oR = 100;
+  // 중심점, 반지름도 width/height에 맞게 조정
+  const cx = width / 2;
+  const cy = height * 0.75;
+  const iR = width / 6.5;
+  const oR = width / 4;
 
   const data = Array.from({ length: maxValue + 1 }, (_, i) => ({
     name: `${i}`,
