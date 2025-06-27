@@ -6,6 +6,15 @@ import './css/AnnotatedImageBox.scss';
 // 여드름 박스 그려진 이미지를 보여주는 컴포넌트
 const AnnotatedImageBox = ({ imagePath, acneBoxes }) => {
   const [annotatedImage, setAnnotatedImage] = useState(null);
+  const [containerStyle, setContainerStyle] = useState({});
+  const [containerStylePC, setContainerStylePC] = useState({});
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const fetchAndAnnotate = async () => {
@@ -30,10 +39,30 @@ const AnnotatedImageBox = ({ imagePath, acneBoxes }) => {
     fetchAndAnnotate();
   }, [imagePath, acneBoxes]);
 
+  // 이미지 로드 후 비율에 따라 컨테이너 스타일 동적 적용 (모바일/PC 모두)
+  const handleImgLoad = (e) => {
+    const img = e.target;
+    const { naturalWidth, naturalHeight } = img;
+    if (isMobile) {
+      if (naturalWidth > naturalHeight) {
+        setContainerStyle({ width: '100%', height: 'auto', aspectRatio: 'unset', maxWidth: '100%', maxHeight: 'unset' });
+      } else {
+        setContainerStyle({ height: '100%', width: 'auto', aspectRatio: 'unset', maxHeight: '100%', maxWidth: 'unset' });
+      }
+    } else {
+      // PC: 더 짧은 쪽이 100%가 되게
+      if (naturalWidth < naturalHeight) {
+        setContainerStylePC({ width: '100%', height: 'auto' });
+      } else {
+        setContainerStylePC({ height: '100%', width: 'auto' });
+      }
+    }
+  };
+
   return (
-    <div className="annotated-image-container">
+    <div className="annotated-image-container" style={isMobile ? containerStyle : containerStylePC}>
       {annotatedImage ? (
-        <img src={annotatedImage} alt="Bounding Box 시각화 이미지" />
+        <img src={annotatedImage} alt="Bounding Box 시각화 이미지" onLoad={handleImgLoad} />
       ) : (
         <p>이미지 처리 중...</p>
       )}
