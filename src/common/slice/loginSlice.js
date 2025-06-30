@@ -89,7 +89,11 @@ const loginSlice = createSlice({
 		loginFailure: (state) => {
 			state.loginSuccess = false;
 		},
+		setNickname: (state, action) => {
+			state.nickname = action.payload;
+		},
 	},
+	
 
 	extraReducers: (builder) => {
 		builder
@@ -111,5 +115,5 @@ const loginSlice = createSlice({
 });
 
 // 액션과 리듀서 내보내기
-export const { login, logout, loginSuccess, loginFailure } = loginSlice.actions;
+export const { login, logout, loginSuccess, loginFailure, setNickname } = loginSlice.actions;
 export default loginSlice.reducer;

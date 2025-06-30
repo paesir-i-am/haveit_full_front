@@ -4,6 +4,8 @@ import MainPage from '../pages/MainPage';
 import ChatbotPage from '../../chat/pages/ChatbotPage';
 import memberRouter from './memberRouter';
 import skinAnalysisRouter from './skinAnalysisRouter';
+import { termsText } from "../constants/terms";
+import { privacyText } from "../constants/privacy";
 
 const Loading = () => <div>Loading...</div>;
 
@@ -29,6 +31,22 @@ const root = createBrowserRouter([
 		element: (
 			<Suspense fallback={<Loading />}>
 				<ChatbotPage />
+			</Suspense>
+		),
+	},
+	{
+		path: "terms",
+		element: (
+			<Suspense fallback={<Loading />}>
+				{termsText}
+			</Suspense>
+		),
+	},
+	{
+		path: "privacy",
+		element: (
+			<Suspense fallback={<Loading />}>
+				{privacyText}
 			</Suspense>
 		),
 	},

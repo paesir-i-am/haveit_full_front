@@ -1,6 +1,6 @@
 import {createSearchParams, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {login, loginPostAsync, logout} from '../slice/loginSlice';
+import {login, loginPostAsync, logout, setNickname} from '../slice/loginSlice';
 
 export const useCustomLogin = () => {
 	const navigate = useNavigate();
@@ -9,6 +9,8 @@ export const useCustomLogin = () => {
 
 	const isLogin = useSelector((state) => state.loginSlice.accessToken);
 	const memberId = useSelector((state) => state.loginSlice.id);
+	const nicknameSet = useSelector((state) => state.loginSlice.nicknameSet);
+	const nickname = useSelector((state) => state.loginSlice.nickname);
 
 	// 로그인 함수
 	const doLogin = async (loginParam) => {
@@ -29,6 +31,10 @@ export const useCustomLogin = () => {
 
 		dispatch(logout());
 		window.location.reload();
+	};
+
+	const updateNickname = (nickname) => {
+		dispatch(setNickname(nickname));
 	};
 
 	const moveToPath = (path) => {
@@ -65,9 +71,12 @@ export const useCustomLogin = () => {
 		loginState,
 		isLogin,
 		memberId,
+		nicknameSet,
+		nickname,
 		doLogin,
 		doSocialLogin,
 		doLogout,
+		updateNickname,
 		moveToPath,
 		moveToLogin,
 		exceptionHandle,
