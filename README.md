@@ -1,73 +1,140 @@
-# Getting Started with Create React App
+# HaveIt Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🌐 **배포 URL**: [https://onepm-2025.shop/](https://onepm-2025.shop/)
 
-## Available Scripts
+## 📋 프로젝트 개요
 
-In the project directory, you can run:
+HAVEIT은 AI 기반 피부 분석 및 챗봇 서비스를 제공하는 React 웹 애플리케이션입니다. 사용자는 사진을 업로드하여 피부 상태를 분석받고, 피부 전문 챗봇과 상담할 수 있습니다.
 
-### `npm start`
+## 🚀 시작하기
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 필수 요구사항
+- Node.js 16.0.0 이상
+- npm
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 설치 및 실행
 
-### `npm test`
+1. **저장소 클론**
+   ```bash
+   git clone [https://github.com/paesir-i-am/haveit_full_front]
+   cd haveit_full_front
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **의존성 설치**
+   ```bash
+   npm install
+   ```
 
-### `npm run build`
+3. **개발 서버 실행**
+   ```bash
+   npm start
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **브라우저에서 확인**
+   - [http://localhost:3000](http://localhost:3000)에서 애플리케이션 확인
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📝 개발 환경
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 개발 도구
+- **Node.js**: 16.0.0 이상
+- **npm**: 8.0.0 이상
 
-### `npm run eject`
+### 개발 서버
+- **포트**: 3000 (기본값)
+- **환경**: React Development Server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 빌드 환경
+- **프로덕션 빌드**: `npm run build`
+- **테스트 실행**: `npm test`
+- **ESLint**: React App 기본 설정
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠 기술 스택
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Frontend
+- **React 18.3.1** - 사용자 인터페이스 구축
+- **Redux Toolkit** - 상태 관리
+- **React Router DOM** - 라우팅
+- **Sass** - 스타일링
+- **Axios** - HTTP 클라이언트
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Visualization
+- **Recharts** - 차트 시각화
+- **React Slick** - 캐러셀 컴포넌트
 
-## Learn More
+## 📁 프로젝트 구조
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+src/
+├── common/                 # 공통 컴포넌트 및 유틸리티
+│   ├── api/               # API 통신 모듈
+│   ├── components/        # 공통 컴포넌트
+│   ├── hook/             # 커스텀 훅
+│   ├── pages/            # 공통 페이지
+│   ├── router/           # 라우팅 설정
+│   ├── slice/            # Redux 슬라이스
+│   └── util/             # 유틸리티 함수
+├── chat/                  # 챗봇 기능
+│   ├── api/              # 챗봇 API
+│   ├── component/        # 챗봇 컴포넌트
+│   └── pages/            # 챗봇 페이지
+├── skinAnalysis/          # 피부 분석 기능
+│   ├── api/              # 피부 분석 API
+│   ├── component/        # 피부 분석 컴포넌트
+│   ├── pages/            # 피부 분석 페이지
+│   └── util/             # 피부 분석 유틸리티
+└── App.js                # 메인 앱 컴포넌트
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🚀 주요 기능
 
-### Code Splitting
+### 1. 🔐 회원 관리 (Member)
+- **카카오 소셜 로그인**: OAuth2를 통한 카카오 계정 연동
+- **JWT 인증**: Access Token과 Refresh Token 기반 인증
+- **회원 정보 관리**: 프로필 정보 저장 및 관리
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 2. 📸 피부 분석 (Skin Analysis)
+- **이미지 업로드**: 멀티파트 파일 업로드 (최대 10MB)
+- **AI 분석**: FastAPI 서버와 연동하여 피부 상태 분석
+- **분석 결과 저장**: 여드름, 모공, 주름, 색소침착 등 상세 분석 결과 저장
+- **분석 히스토리**: 사용자별 분석 기록 조회 및 페이징 처리
 
-### Analyzing the Bundle Size
+### 3. 💬 챗봇 서비스 (Chatbot)
+- **AI 챗봇**: FastAPI 서버와 연동한 피부 관리 상담 챗봇
+- **세션 관리**: 사용자별 대화 세션 관리 및 타임아웃 처리
+- **대화 기록**: 세션별 대화 로그 저장 및 조회
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📱 주요 페이지
 
-### Making a Progressive Web App
+### 메인 페이지 (`/`)
+- 프로젝트 소개 및 슬로건
+- 피부 분석 및 챗봇 서비스 안내
+- 애니메이션 효과가 적용된 인터랙티브 UI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![메인 페이지 데스크톱](./images/main-page-desktop.jpg)
 
-### Advanced Configuration
+### 피부 분석 (`/skin-analysis`)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### 업로드 페이지 (`/skin-analysis/upload`)
+- 사진 업로드 및 분석 가이드라인
+- 분석 진행 상태 표시
 
-### Deployment
+![피부 분석 업로드 페이지 데스크톱](./images/skin-analysis-upload-desktop.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### 결과 페이지 (`/skin-analysis/result`)
+- 분석 결과 시각화 및 상세 정보
+- 차트 및 바운딩 박스 표시
 
-### `npm run build` fails to minify
+![피부 분석 결과 페이지 데스크톱](./images/skin-analysis-result-desktop.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### 히스토리 페이지 (`/skin-analysis/history`)
+- 이전 분석 결과 조회
+- 분석 히스토리 목록
 
+![피부 분석 히스토리 페이지 데스크톱](./images/skin-analysis-history-desktop.jpg)
 
-수정
+### 챗봇 상담 (`/chat`)
+- 실시간 AI 챗봇과의 대화
+- 피부 전문 지식 기반 상담
+- 대화 히스토리 관리
+
+![챗봇 상담 페이지 데스크톱](./images/chatbot-page-desktop.jpg)
