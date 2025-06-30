@@ -21,6 +21,13 @@ const MemberRegisterPage = () => {
     email: false,
   });
 
+  useEffect(() => {
+    if (nicknameSet) {
+      alert('이미 닉네임이 설정된 사용자입니다.');
+      navigate('/'); // 홈 또는 다른 페이지로 이동
+    }
+  }, [nicknameSet, navigate]);
+
   const handleSubmit = async () => {
     if (!agreements.terms || !agreements.privacy) {
       alert('필수 약관에 동의해야 합니다.');
