@@ -1,0 +1,41 @@
+.register-page-container {
+  padding: 2rem;
+  max-width: 700px;
+  margin: auto;
+  margin-top: 8rem;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 24px;
+  }
+
+  .divider {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+
+  .submit-button-wrapper {
+    margin-top: 2rem;
+    text-align: center;
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      &:hover:not(:disabled) {
+        background-color: #0056b3;
+      }
+    }
+  }
+}

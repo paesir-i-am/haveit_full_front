@@ -1,16 +1,15 @@
-// 변수 선언 (색상이나 공통 값들은 변수화해두면 유지보수가 편리함)
+// 변수 선언
 $primary-color: #61dafb;
 $nav-height: 6.25rem;
 $logo-width: 9.375rem;
 
-// App 영역
+// App 스타일
 .App {
   text-align: center;
 
   &-logo {
     height: 40vmin;
     pointer-events: none;
-
     @media (prefers-reduced-motion: no-preference) {
       animation: App-logo-spin infinite 20s linear;
     }
@@ -41,6 +40,7 @@ $logo-width: 9.375rem;
   }
 }
 
+// ----------------------------
 // 네비게이션 바
 nav {
   background-color: white;
@@ -66,16 +66,12 @@ nav {
 
     .logo {
       width: $logo-width;
-
       a {
-        color: black;
-        text-decoration: none;
-        font-size: 1.75rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-
-        &:hover {
-          text-decoration: none;
+        display: inline-block;
+    
+        .logo-image {
+          height: 2.5rem; // 또는 원하는 크기로 조정
+          object-fit: contain;
         }
       }
     }
@@ -109,8 +105,6 @@ nav {
             padding: 0.625rem 0;
             border-radius: 4px;
             width: 13.75rem;
-            box-sizing: border-box;
-            z-index: 999;
             box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
 
             li {
@@ -176,6 +170,52 @@ main {
   padding-top: $nav-height;
 }
 
+// ----------------------------
+// 푸터 영역 (PC 전용)
+.footer {
+  background-color: #f8f8f8;
+  padding: 2rem 1rem;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+  color: #444;
+
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    max-width: 960px;
+    margin: 0 auto;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-section {
+    flex: 1 1 45%;
+    min-width: 280px;
+
+    h4 {
+      font-size: 16px;
+      margin-bottom: 0.75rem;
+      color: #111;
+    }
+
+    p {
+      margin: 0.25rem 0;
+      line-height: 1.5;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// ----------------------------
+// 반응형 처리
 @media screen and (max-width: 48rem) {
   nav {
     min-height: 3.75rem;
@@ -203,9 +243,6 @@ main {
       .menu-center {
         width: 100%;
         .menu-items {
-          list-style-type: none;
-          padding: 0;
-          margin: 0;
           display: none;
           flex-direction: column;
           gap: 0.625rem;
@@ -214,12 +251,7 @@ main {
             display: flex;
           }
 
-          li:first-child {
-            margin-top: 1.25rem;
-          }
-
           li {
-            margin: 0;
             width: 100%;
             text-align: center;
 
@@ -227,17 +259,10 @@ main {
               display: none;
               flex-direction: column;
               background-color: #f9f9f9;
-              padding: 0.625rem 0;
               width: 100%;
-              box-shadow: none;
-              position: static;
 
-              li {
-                margin: 0.3125rem 0;
-
-                a {
-                  font-size: 0.875rem;
-                }
+              li a {
+                font-size: 0.875rem;
               }
             }
 
@@ -248,7 +273,6 @@ main {
 
           a {
             font-size: 1rem;
-            display: block;
             padding: 0.625rem 0;
           }
         }
@@ -257,16 +281,15 @@ main {
       .nav-right-space {
         width: 100%;
         justify-content: center;
-        margin-top: 0.625rem;
         display: none;
         &.open {
           display: flex;
         }
+
         > * {
           margin-bottom: 1.25rem;
         }
       }
-
     }
 
     .mobile-menu-toggle {
@@ -286,6 +309,9 @@ main {
     padding-top: 3.125rem;
   }
 
+  .footer {
+    display: none; // 모바일에서는 푸터 숨김
+  }
 }
 
 .menu-items {
@@ -298,7 +324,6 @@ main {
       display: flex;
     }
   }
-  
 }
 
 .nav-right-space {
