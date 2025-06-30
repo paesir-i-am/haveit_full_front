@@ -1,9 +1,11 @@
 .skin-result-guide {
-  background-color: transparent;
+  background-color: #fff !important;
   border: none;
   border-radius: 1rem;
   padding: 1.5rem 1.5rem;
   max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
   height: 100%;
   box-shadow: none;
   font-family: 'Pretendard', sans-serif;
@@ -79,6 +81,9 @@
     margin: 0;
     height: auto;
     line-height: 1.4;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
 
     .guide-header {
       h3 {
@@ -115,5 +120,73 @@
         margin-bottom: 0.3rem;
       }
     }
+  }
+}
+
+.guide-toggle-area {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.guide-toggle-btn {
+  background: #fff6f6;
+  color: #e99899;
+  border: 1.5px solid #e99899;
+  border-radius: 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+.guide-toggle-btn:hover {
+  background: #e99899;
+  color: #fff;
+}
+
+.guide-content {
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s, padding 0.3s;
+  overflow: hidden;
+  max-height: 1000px;
+  opacity: 1;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+.guide-content.closed {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  pointer-events: none;
+}
+.guide-content.open {
+  max-height: 1000px;
+  opacity: 1;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .guide-toggle-area {
+    justify-content: center;
+    margin-bottom: 0.2rem;
+  }
+  .guide-toggle-btn {
+    width: 100%;
+    max-width: 320px;
+    font-size: 0.98rem;
+    padding: 0.5rem 0.8rem;
+  }
+  .guide-content {
+    padding-top: 0.3rem;
+    padding-bottom: 0.7rem;
+  }
+  .guide-content.closed {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
