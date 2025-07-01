@@ -4,6 +4,7 @@ $mobile-breakpoint: 768px;
   width: 100%;
   background-color: #e0e1e9;
   font-family: 'Pretendard', sans-serif;
+  margin-top: 2rem;
 
   .title-section {
     text-align: center;
@@ -31,7 +32,7 @@ $mobile-breakpoint: 768px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding: 2.5rem 1rem;
 
     .guideline-box {
