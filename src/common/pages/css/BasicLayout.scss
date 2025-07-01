@@ -246,9 +246,13 @@ main {
           display: none;
           flex-direction: column;
           gap: 0.625rem;
+          margin-bottom: 1rem;
 
           &.open {
             display: flex;
+            align-items: center;
+            margin: 0.5rem;
+            margin-bottom: 1rem;
           }
 
           li {
