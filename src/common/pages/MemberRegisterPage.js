@@ -26,7 +26,12 @@ const MemberRegisterPage = () => {
       alert('이미 닉네임이 설정된 사용자입니다.');
       navigate('/'); // 홈 또는 다른 페이지로 이동
     }
-  }, [nicknameSet, navigate]);
+
+    if(!memberId) {
+      alert('로그인 후 이용해주세요.');
+      navigate('/');
+    }
+  }, [nicknameSet, navigate, memberId]);
 
   const handleSubmit = async () => {
     if (!agreements.terms || !agreements.privacy) {
