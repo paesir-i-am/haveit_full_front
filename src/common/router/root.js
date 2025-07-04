@@ -4,8 +4,8 @@ import MainPage from '../pages/MainPage';
 import ChatbotPage from '../../chat/pages/ChatbotPage';
 import memberRouter from './memberRouter';
 import skinAnalysisRouter from './skinAnalysisRouter';
-import { termsText } from "../constants/terms";
-import { privacyText } from "../constants/privacy";
+import PrivacyPolicyPage from "../pages/PrivacyPolicyPage";
+import TermsPolicyPage from "../pages/TermsPolicyPage";
 
 const Loading = () => <div>Loading...</div>;
 
@@ -38,7 +38,7 @@ const root = createBrowserRouter([
 		path: "terms",
 		element: (
 			<Suspense fallback={<Loading />}>
-				{termsText}
+				<TermsPolicyPage />
 			</Suspense>
 		),
 	},
@@ -46,7 +46,7 @@ const root = createBrowserRouter([
 		path: "privacy",
 		element: (
 			<Suspense fallback={<Loading />}>
-				{privacyText}
+				<PrivacyPolicyPage />
 			</Suspense>
 		),
 	},

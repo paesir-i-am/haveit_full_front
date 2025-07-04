@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './css/MemberRegisterAgreement.scss';
-import { termsText } from '../constants/terms';
-import { privacyText } from '../constants/privacy';
+import React, { useState } from "react";
+import "./css/MemberRegisterAgreement.scss";
+import { termsText } from "../constants/terms";
+import { privacyText } from "../constants/privacy";
 
 const MemberRegisterAgreement = ({ agreements, setAgreements }) => {
   const [openDetail, setOpenDetail] = useState({
@@ -24,7 +24,7 @@ const MemberRegisterAgreement = ({ agreements, setAgreements }) => {
 
   const toggle = (key) => {
     const newState = { ...agreements };
-    if (key === 'marketing') {
+    if (key === "marketing") {
       const val = !agreements.marketing;
       newState.marketing = val;
       newState.sms = val;
@@ -33,7 +33,7 @@ const MemberRegisterAgreement = ({ agreements, setAgreements }) => {
       newState[key] = !agreements[key];
     }
     newState.all = Object.entries(newState)
-      .filter(([k]) => k !== 'all')
+      .filter(([k]) => k !== "all")
       .every(([, v]) => v);
     setAgreements(newState);
   };
@@ -59,17 +59,18 @@ const MemberRegisterAgreement = ({ agreements, setAgreements }) => {
             <input
               type="checkbox"
               checked={agreements.terms}
-              onChange={() => toggle('terms')}
+              onChange={() => toggle("terms")}
             />
             이용약관 동의 (필수)
           </label>
-          <button onClick={() => toggleDetail('terms')}>
-            {openDetail.terms ? '▲ 닫기' : '▼ 보기'}
+          <button onClick={() => toggleDetail("terms")}>
+            {openDetail.terms ? "▲ 닫기" : "▼ 보기"}
           </button>
           {openDetail.terms && (
-            <div className="agreement-detail scroll-box">
-              <pre>{termsText}</pre>
-            </div>
+              <div
+                className="agreement-detail scroll-box"
+                dangerouslySetInnerHTML={{ __html: termsText }}
+              />
           )}
         </div>
 
@@ -79,16 +80,19 @@ const MemberRegisterAgreement = ({ agreements, setAgreements }) => {
             <input
               type="checkbox"
               checked={agreements.privacy}
-              onChange={() => toggle('privacy')}
+              onChange={() => toggle("privacy")}
             />
             개인정보 수집 및 이용 동의 (필수)
           </label>
-          <button onClick={() => toggleDetail('privacy')}>
-            {openDetail.privacy ? '▲ 닫기' : '▼ 보기'}
+          <button onClick={() => toggleDetail("privacy")}>
+            {openDetail.privacy ? "▲ 닫기" : "▼ 보기"}
           </button>
           {openDetail.privacy && (
             <div className="agreement-detail scroll-box">
-              <pre>{privacyText}</pre>
+              <div
+                className="agreement-detail scroll-box"
+                dangerouslySetInnerHTML={{ __html: privacyText }}
+              />
             </div>
           )}
         </div>
@@ -99,12 +103,12 @@ const MemberRegisterAgreement = ({ agreements, setAgreements }) => {
             <input
               type="checkbox"
               checked={agreements.marketing}
-              onChange={() => toggle('marketing')}
+              onChange={() => toggle("marketing")}
             />
             개인정보 이용 수신 동의 (선택)
           </label>
-          <button onClick={() => toggleDetail('marketing')}>
-            {openDetail.marketing ? '▲ 닫기' : '▼ 보기'}
+          <button onClick={() => toggleDetail("marketing")}>
+            {openDetail.marketing ? "▲ 닫기" : "▼ 보기"}
           </button>
           {openDetail.marketing && (
             <div className="agreement-detail">
@@ -113,7 +117,7 @@ const MemberRegisterAgreement = ({ agreements, setAgreements }) => {
                 <input
                   type="checkbox"
                   checked={agreements.sms}
-                  onChange={() => toggle('sms')}
+                  onChange={() => toggle("sms")}
                 />
                 SMS 수신
               </label>
@@ -121,7 +125,7 @@ const MemberRegisterAgreement = ({ agreements, setAgreements }) => {
                 <input
                   type="checkbox"
                   checked={agreements.email}
-                  onChange={() => toggle('email')}
+                  onChange={() => toggle("email")}
                 />
                 이메일 수신
               </label>
