@@ -26,7 +26,7 @@ const BasicLayout = ({ children }) => {
               className={({ isActive }) => (isActive ? "active" : undefined)}
             >
               <img
-                src="mainLogoVer2.png"
+                src="/mainLogoVer2.png"
                 alt="HAVEIT 로고"
                 className="logo-image"
               />
