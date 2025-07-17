@@ -6,8 +6,8 @@ export const sendChatToBot = async (memberId, userQuery) => {
     userQuery,
   }); 
 
-  console.log(userQuery);
-  console.log(response.data);
+  // console.log(userQuery);
+  // console.log(response.data);
   return response.data.response;
 }
 

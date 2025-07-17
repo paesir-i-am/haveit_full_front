@@ -27,7 +27,7 @@ const SkinAnalysisHistoryPage = () => {
   const loadHistory = async () => {
     try {
       const result = await getSkinAnalysisHistoryList(memberId, page, 10);
-      console.log(result);
+      // console.log(result);
       setHistoryList(result.content);
       setTotalPages(result.totalPages);
     } catch (err) {
@@ -38,7 +38,7 @@ const SkinAnalysisHistoryPage = () => {
   const handleClickDetail = async (analysisId) => {
     try {
       const result = await getSkinAnalysisDetail(memberId, analysisId);
-      console.log(result);
+      // console.log(result);
       navigate('/skin-analysis/result', { state: { result } });
     } catch (err) {
       console.error('상세 데이터 불러오기 실패:', err);

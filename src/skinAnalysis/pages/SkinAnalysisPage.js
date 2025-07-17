@@ -24,7 +24,7 @@ const SkinAnalysisPage = () => {
     setAnalyzing(true);
     try {
       const result = await uploadSkinAnalysisImage(selectedFile, memberId);
-      console.log("분석 결과:", result);
+      // console.log("분석 결과:", result);
       navigate("/skin-analysis/result", { state: { result } });
     } catch (error) {
       console.error("분석 실패:", error);

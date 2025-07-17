@@ -69,12 +69,12 @@ const loginSlice = createSlice({
 	initialState: loadMemberCookie() || initState, // 쿠키 데이터가 없으면 초기 상태
 	reducers: {
 		login: (state, action) => {
-			console.log("login...");
+			// console.log("login...");
 			updateStateAndCookie(state, action.payload);
 		},
 
 		logout: (state) => {
-			console.log("logout...");
+			// console.log("logout...");
 			// 상태 초기화
 			Object.assign(state, initState);
 
