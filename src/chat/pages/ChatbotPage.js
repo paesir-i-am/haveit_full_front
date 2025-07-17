@@ -60,8 +60,8 @@ const ChatbotPage = () => {
       }
 
       dispatch(setMessages(messagesWithId));
-      console.log('response:', response);
-      console.log('messagesWithId:', messagesWithId);
+      // console.log('response:', response);
+      // console.log('messagesWithId:', messagesWithId);
     };
     fetchLatestChatHistory();
   }, [memberId, dispatch]);

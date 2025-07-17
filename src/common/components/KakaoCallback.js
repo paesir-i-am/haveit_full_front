@@ -19,7 +19,7 @@ const KakaoCallback = () => {
       })
         .then((res) => {
           const data = res.data;
-          console.log("로그인 유저 정보:", data);
+          // console.log("로그인 유저 정보:", data);
 
           // 사용자 정보 저장
           doSocialLogin(data);
